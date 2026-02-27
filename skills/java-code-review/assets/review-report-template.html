@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码审查报告 - {PR_TITLE}</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>代码审查报告</h1>
+            <div class="meta">
+                <p><strong>PR 标题:</strong> {PR_TITLE}</p>
+                <p><strong>PR 编号:</strong> {PR_NUMBER}</p>
+                <p><strong>作者:</strong> {PR_AUTHOR}</p>
+                <p><strong>分支:</strong> {PR_BRANCH}</p>
+                <p><strong>审查日期:</strong> {REVIEW_DATE}</p>
+            </div>
+        </header>
+
+        <!-- Summary Statistics -->
+        <section class="summary">
+            <h2>概览</h2>
+            <div class="stats">
+                <div class="stat-card critical">
+                    <div class="stat-number">{CRITICAL_COUNT}</div>
+                    <div class="stat-label">严重</div>
+                </div>
+                <div class="stat-card high">
+                    <div class="stat-number">{HIGH_COUNT}</div>
+                    <div class="stat-label">高</div>
+                </div>
+                <div class="stat-card medium">
+                    <div class="stat-number">{MEDIUM_COUNT}</div>
+                    <div class="stat-label">中</div>
+                </div>
+                <div class="stat-card low">
+                    <div class="stat-number">{LOW_COUNT}</div>
+                    <div class="stat-label">低</div>
+                </div>
+            </div>
+            <div class="summary-text">
+                <p><strong>总问题数:</strong> {TOTAL_ISSUES}</p>
+                <p><strong>审查文件数:</strong> {FILES_COUNT}</p>
+                <p><strong>代码行数变更:</strong> +{ADDITIONS} -{DELETIONS}</p>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <h2>快速导航</h2>
+            <ul>
+                <li><a href="#functional">功能逻辑 ({FUNCTIONAL_COUNT})</a></li>
+                <li><a href="#security">安全 ({SECURITY_COUNT})</a></li>
+                <li><a href="#performance">性能 ({PERFORMANCE_COUNT})</a></li>
+                <li><a href="#architecture">架构 ({ARCHITECTURE_COUNT})</a></li>
+                <li><a href="#stability">稳定性 ({STABILITY_COUNT})</a></li>
+            </ul>
+        </nav>
+
+        <!-- Critical Issues -->
+        <section class="issues-section">
+            <h2 id="critical" class="section-title critical-title">严重问题 (需要立即修复)</h2>
+            {CRITICAL_ISSUES}
+        </section>
+
+        <!-- Functional Logic Issues -->
+        <section class="issues-section">
+            <h2 id="functional" class="section-title">功能逻辑</h2>
+            {FUNCTIONAL_ISSUES}
+        </section>
+
+        <!-- Security Issues -->
+        <section class="issues-section">
+            <h2 id="security" class="section-title">安全</h2>
+            {SECURITY_ISSUES}
+        </section>
+
+        <!-- Performance Issues -->
+        <section class="issues-section">
+            <h2 id="performance" class="section-title">性能</h2>
+            {PERFORMANCE_ISSUES}
+        </section>
+
+        <!-- Architecture Issues -->
+        <section class="issues-section">
+            <h2 id="architecture" class="section-title">架构</h2>
+            {ARCHITECTURE_ISSUES}
+        </section>
+
+        <!-- Stability Issues -->
+        <section class="issues-section">
+            <h2 id="stability" class="section-title">稳定性</h2>
+            {STABILITY_ISSUES}
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>本报告由 Java Code Review Skill 自动生成</p>
+            <p>生成时间: {GENERATION_TIME}</p>
+        </footer>
+    </div>
+
+    <script>
+        // 添加交互功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 折叠/展开代码片段
+            const codeBlocks = document.querySelectorAll('.code-block');
+            codeBlocks.forEach(block => {
+                block.addEventListener('click', function() {
+                    this.classList.toggle('expanded');
+                });
+            });
+
+            // 问题过滤
+            function filterIssues(level) {
+                const issues = document.querySelectorAll('.issue-card');
+                issues.forEach(issue => {
+                    if (level === 'all' || issue.classList.contains(level)) {
+                        issue.style.display = 'block';
+                    } else {
+                        issue.style.display = 'none';
+                    }
+                });
+            }
+
+            // 添加过滤按钮
+            const nav = document.querySelector('.nav ul');
+            const filterLi = document.createElement('li');
+            filterLi.innerHTML = `
+                <div class="filter-buttons">
+                    <button onclick="filterIssues('all')" class="filter-btn">全部</button>
+                    <button onclick="filterIssues('critical')" class="filter-btn critical">严重</button>
+                    <button onclick="filterIssues('high')" class="filter-btn high">高</button>
+                    <button onclick="filterIssues('medium')" class="filter-btn medium">中</button>
+                    <button onclick="filterIssues('low')" class="filter-btn low">低</button>
+                </div>
+            `;
+            nav.appendChild(filterLi);
+        });
+    </script>
+</body>
+</html>
