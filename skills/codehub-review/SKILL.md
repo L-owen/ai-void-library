@@ -1,6 +1,6 @@
 ---
 name: codehub-review
-description: 系统化的 Code Review 工作流程，用于 MR/PR 代码审查。使用 codehub-mcp-server 获取信息，根据变更复杂度选择审查深度（直接/深度/本地），并集成语言特定的审查技能（java-code-review、react-tsx-review）。本技能专注于审查流程和工作流，不定义具体的编码规则。
+description: 代码审查工作流技能。当用户说 "review"、"审查"、"check code"、提供 MR/PR 链接、或要求代码审查时触发。自动检测语言并调用 java-code-review 或 react-tsx-review 进行五维度分析。使用 codehub-mcp-server 获取信息，根据变更复杂度选择审查深度。专注于审查流程，不定义具体编码规则。
 ---
 
 # CodeHub Review
