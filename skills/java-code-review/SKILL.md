@@ -1,6 +1,6 @@
 ---
 name: java-code-review
-description: Java 代码审查技能。当用户说 "review Java"、"Java 代码审查"、审查 .java 文件、或包含 "Java"+"review" 时触发。五维度分析：功能逻辑、安全性、性能、架构扩展性、稳定性。基于 IntelliJ 平台最佳实践。传入文件列表和 diff，返回审查结果和 HTML 报告。
+description: Java 代码审查技能。五维度分析：功能逻辑、安全性、性能、架构扩展性、稳定性。基于 IntelliJ 平台最佳实践。触发条件：用户说 "review Java"、"Java 代码审查"、提供 .java 文件、或要求 Java 代码审查。输入：文件列表、diff 内容。输出：五维度审查结果、HTML 报告。
 ---
 
 # Java Code Review

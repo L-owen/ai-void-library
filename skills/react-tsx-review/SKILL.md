@@ -1,6 +1,6 @@
 ---
 name: react-tsx-review
-description: React + TypeScript 代码审查技能。当用户说 "review React"、"React 代码审查"、"TSX review"、审查 .tsx/.ts 文件、或包含 "React"+"review" 时触发。五维度分析：React 最佳实践、TypeScript 类型安全、性能优化、安全规范、代码质量。传入文件列表和 diff，返回审查结果和 HTML 报告。
+description: React + TypeScript 代码审查技能。五维度分析：React 最佳实践、TypeScript 类型安全、性能优化、安全规范、代码质量。触发条件：用户说 "review React"、"React 代码审查"、"TSX review"、提供 .tsx/.ts 文件、或要求 React/TSX 代码审查。输入：文件列表、diff 内容。输出：五维度审查结果、HTML 报告。
 ---
 
 # React + TypeScript Code Review
