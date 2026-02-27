@@ -1,6 +1,6 @@
 ---
 name: codehub-review
-description: Systematic code review workflow for merge requests using codehub-mcp-server. Use when user asks to review an MR/PR or provides a merge request link. Handles fetching MR information, assessing change complexity, reviewing code changes with appropriate depth, and integrating with coding standards skills for rule-based review. This skill focuses on the REVIEW PROCESS and WORKFLOW, not specific review rules which are provided by other skills.
+description: 系统化的 Code Review 工作流程，用于 MR/PR 代码审查。使用 codehub-mcp-server 获取信息，根据变更复杂度选择审查深度（直接/深度/本地），并集成语言特定的审查技能（java-code-review、react-tsx-review）。本技能专注于审查流程和工作流，不定义具体的编码规则。
 ---
 
 # CodeHub Review
