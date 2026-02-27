@@ -43,13 +43,23 @@ description: 系统化的代码审查工作流程。用于 MR/PR 代码审查，
 根据复杂度选择审查深度：
 
 #### [2A] 直接 Review（< 100 行）
-检测语言 → 调用对应 review skill → 整合结果
+1. 检测文件扩展名
+2. 如果是 `.java`：使用 Skill 工具调用 `java-code-review`
+3. 如果是 `.tsx`, `.ts`, `.jsx`：使用 Skill 工具调用 `react-tsx-review`
+4. 整合结果
 
 #### [2B] 深度 Review（100-500 行）
-检测语言 → 调用对应 review skill → 读取完整上下文 → 跨文件检查 → 整合结果
+1. 检测文件扩展名
+2. 如果是 `.java`：使用 Skill 工具调用 `java-code-review`
+3. 如果是 `.tsx`, `.ts`, `.jsx`：使用 Skill 工具调用 `react-tsx-review`
+4. 读取完整上下文，跨文件检查
+5. 整合结果
 
 #### [2C] 本地 Review（> 500 行）
-下载 patch → 应用到本地 → 静态分析 + 测试 → 深度 review
+1. 下载 patch，应用到本地
+2. 检测文件类型
+3. 静态分析 + 测试
+4. 深度 review
 
 详细步骤参见 [references/review-workflow.md](references/review-workflow.md)
 
@@ -63,21 +73,31 @@ description: 系统化的代码审查工作流程。用于 MR/PR 代码审查，
 
 ## 语言特定技能集成
 
-检测文件扩展名后调用对应技能：
+### 检测和调用规则
+
+当检测到文件扩展名时，使用 Skill 工具调用对应技能：
+
+**如果是 `.java` 文件**：
+```
+使用 Skill 工具调用：skill="java-code-review"
+传入：文件列表、Diff 内容、PR 元数据
+```
+
+**如果是 `.tsx`, `.ts`, `.jsx` 文件**：
+```
+使用 Skill 工具调用：skill="react-tsx-review"
+传入：文件列表、Diff 内容、PR 元数据
+```
+
+### 技能对比
 
 | 文件类型 | 调用技能 | 审查维度 |
 |---------|---------|---------|
 | `.java` | `java-code-review` | 功能逻辑、安全性、性能、架构、稳定性 |
 | `.tsx`, `.ts`, `.jsx` | `react-tsx-review` | React 最佳实践、TypeScript、性能、安全、质量 |
 
-**调用方式**：
-```
-Skill tool: skill="java-code-review" 或 "react-tsx-review"
-传入：文件列表、Diff 内容、PR 元数据
-返回：分类的问题列表、HTML 报告
-```
+### 结果整合
 
-**结果整合**：
 - 按严重程度（Critical/High/Medium/Low）合并问题
 - 标注来源：`[Java Review - 安全性]`、`[React Review - TypeScript]`
 
