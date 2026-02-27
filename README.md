@@ -27,7 +27,7 @@ Specialized workflows and knowledge packages for Claude Code.
 
 #### codehub-review
 
-Systematic code review workflow for merge requests using codehub-mcp-server.
+Systematic code review workflow for merge requests using codehub-review-mcp.
 
 - **Focus**: Review process and workflow
 - **Features**:

@@ -6,7 +6,7 @@
 
 ## 核心职责
 
-1. 使用 codehub-mcp-server 获取 MR 信息和代码变更
+1. 使用 codehub-review-mcp 获取 MR 信息和代码变更
 2. 根据文件类型自动调用对应的专业审查技能
 3. 整合审查结果，生成清晰的审查报告
 
@@ -27,7 +27,7 @@
 - **作用**：五维度分析（React 实践、TypeScript、性能、安全、质量）
 - **调用方式**：使用 Skill 工具，传入文件列表和 Diff
 
-## MCP 工具（codehub-mcp-server）
+## MCP 工具（codehub-review-mcp）
 
 - `get_mr_info` - 获取 MR 元数据
 - `get_mr_diff` - 获取代码变更 Diff

@@ -2,7 +2,7 @@
 
 ## 概述
 
-本文档描述 codehub-mcp-server 提供的工具及其在 Code Review 流程中的使用方法。
+本文档描述 codehub-review-mcp 提供的工具及其在 Code Review 流程中的使用方法。
 
 ## 可用工具
 

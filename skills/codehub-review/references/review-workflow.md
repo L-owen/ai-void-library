@@ -8,7 +8,7 @@
 
 ### 阶段 1: 获取 MR 信息
 
-使用 MCP 工具从 codehub-mcp-server 获取 MR 的基本信息：
+使用 MCP 工具从 codehub-review-mcp 获取 MR 的基本信息：
 
 1. **获取 MR 元数据**
    - MR 链接/ID

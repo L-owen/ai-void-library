@@ -5,7 +5,7 @@ description: 系统化的代码审查工作流程。用于 MR/PR 代码审查，
 
 # CodeHub Review
 
-本技能提供系统化的 Code Review 工作流程，通过 codehub-mcp-server 获取 MR 信息并进行分层 review。核心特点是**流程驱动**而非规则驱动。
+本技能提供系统化的 Code Review 工作流程，通过 codehub-review-mcp 获取 MR 信息并进行分层 review。核心特点是**流程驱动**而非规则驱动。
 
 ## 触发条件
 
@@ -31,7 +31,7 @@ description: 系统化的代码审查工作流程。用于 MR/PR 代码审查，
 
 ### [阶段 1] 获取 MR 信息
 
-使用 codehub-mcp-server 工具获取：
+使用 codehub-review-mcp 工具获取：
 - MR 元数据（ID、标题、作者、分支）
 - 变更文件列表和 Diff 统计
 - 评估复杂度（文件数、行数、跨文件影响）
